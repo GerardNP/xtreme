@@ -6,7 +6,8 @@ import { Global } from './global';
 @Injectable()
 export class S2vService {
 
-    public url: String;
+    public url: string;
+    public token: string;
 
     constructor(private _http: HttpClient) {
         this.url = Global.urls2vapi;
@@ -19,6 +20,16 @@ export class S2vService {
             headers: {
                 password: pwd,
                 user: usr
+            }
+        });
+    }
+
+    getUsers(): Observable<any> {
+        let request = "users/";
+        this.token = localStorage.getItem("token");
+        return this._http.get(this.url + request, {
+            headers: {
+                "access-token": this.token,
             }
         });
     }

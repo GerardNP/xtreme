@@ -1,5 +1,6 @@
 import { Component, OnInit, ViewChild, ElementRef } from '@angular/core';
 import { S2vService } from 'src/app/services/s2v.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -10,7 +11,9 @@ export class LoginComponent implements OnInit {
   @ViewChild("userbox") userbox: ElementRef;
   @ViewChild("passwordbox") passwordbox: ElementRef;
 
-  constructor(private _service: S2vService) { }
+  constructor(
+    private _service: S2vService,
+    private _router: Router) { }
 
   ngOnInit(): void {
   }
@@ -24,6 +27,7 @@ export class LoginComponent implements OnInit {
       console.log(res);
       if (res.auth) {
         localStorage.setItem("token", res.token);
+        this._router.navigate(["/"]);
       }
     });
   }
