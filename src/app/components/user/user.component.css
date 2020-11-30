@@ -1,0 +1,8 @@
+*{
+    outline:1px solid red;
+}
+
+.img-thumbnail{
+    width:200px;
+    height: 200px;
+}
