@@ -20,7 +20,8 @@ import { UserComponent } from './components/user/user.component';
     AppComponent,
     LoginComponent,
     UsersComponent,
-    UserComponent
+    UserComponent,
+    MatIcon
   ],
   imports: [
     BrowserModule,

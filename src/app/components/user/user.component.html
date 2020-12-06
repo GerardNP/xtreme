@@ -1,26 +1,96 @@
+<div class="container font-weight-bolder h-100 align-middle text-center" *ngIf="jotason">
+    <h1 class="titulo">Detalles del usuario</h1>
+    <h1 class="titulo">{{ jotason.identity.name+" "+jotason.identity.firstname }}</h1>
+    <div class="row fila">
 
-<div class="container">
-    <h1>Detalles del perfil</h1>
-    <div class="row">
         <div class="col-12 col-lg-6">
-            <div class="m-2 p-2">
-                <div class="row">
-                    <div class="col-7">
-                        <img src="assets/img/user/user.png" alt="..." class="img-thumbnail">
+            <div class="row">
+                <div class="col-8">
+                    <div class="row">
+                        <div class="col-7">
+                            <img src="assets/img/user/user.png" alt="..." class="img-thumbnail ">
+                        </div>
+                        <div class="col-5">
+                            <div class="row">
+                                <h4 class="subtitulo">Datos personales</h4>
+                                <div class="col-12"><p><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>{{ jotason.identity.name }} </p></div>
+                                <div class="col-12"><p><mat-icon class="mat-icon-rtl-mirror" svgIcon="thumb-up"></mat-icon>{{ jotason.identity.firstname+" "+jotason.identity.secondname }}</p></div>
+                                <div class="col-12"><p>{{ jotason.identifier }}</p></div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-3">
-                        {{ jotason.identity.name }}
-                    </div>
-                    <div class="col-2">
-                        {{ jotason.identity.firstname }}
-                        {{ jotason.identity.secondname }}
+                </div>
+                <div class="col-4">
+                    <div class="row">
+                        <h3 class="subtitulo" style="background-color: transparent !important;"></h3><br/>
+                        <div class="col-12">{{ jotason.phone_number }}</div>
+                        <div class="col-12">Sexo: {{ jotason.identity.sex }}</div>
+                        <div class="col-12">{{ jotason.identity.dateofbirth }}</div>
+                        <div class="col-12">{{ jotason.identity.height }}cm</div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
-    <div class="col-12 col-lg-6">
-        <div class="m-2 p-2"></div>
-    </div>
-</div>
+        <div class="col-12 col-lg-6">
+            <div class="row">
+                <div class="col-4">
+                    <h2 class="subtitulo">OFICIO</h2>
+                    <p>{{ jotason.job }}</p>
+                </div>
 
+                <div class="col-4">
+                    <h2 class="subtitulo">DINERO</h2>
+                    <p>{{ jotason.bank_money }}</p>
+                </div>
+
+                <div class="col-4">
+                    <h2 class="subtitulo">LICENCIA</h2>
+                    <p>{{ jotason.licenses.weapon }}</p>
+                </div>
+            </div>
+        </div>
+
+    </div><!-- row -->
+    <h1 class="titulo">Vehículos</h1>
+    <div class="row px-2 fila">
+
+        <div class="col-3">
+            <img src="assets/img/user/car.png" alt="..." class="img-thumbnail">
+        </div>
+
+        <!--
+            <div class="col-4" *ngFor="let obj of jotason.vehicles">
+                {{ obj }}
+                <ng-container *ngFor="let car of obj">
+                    <p>
+                        Modelo: {{ car.model }}
+                        Matrícula: {{ car.plate }}
+                    </p>
+                </ng-container>
+            </div>
+        -->
+
+        <div class="col-4">
+            <h2 class="subtitulo">MODELO</h2>
+            <p>{{ jotason.vehicles["AVD 469"].model}}</p>
+        </div>
+
+        <div class="col-5">
+            <h2 class="subtitulo">MATRICULA</h2>
+            <p>{{ jotason.vehicles["AVD 469"].plate}}</p>
+        </div>
+
+        <!--
+        <div class="col-3">
+            <div id="matricula" class="">
+                <img src="assets/img/user/matricula.png" alt="..." class="img-thumbnail h-50 ">
+            </div>
+        </div>
+        -->
+
+        <ng-container *ngFor="let v of this.coches">
+            <li>{{ v.model }}</li>
+        </ng-container>
+
+    </div> <!-- row -->
+</div> <!-- container -->
