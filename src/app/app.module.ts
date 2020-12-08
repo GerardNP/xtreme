@@ -21,7 +21,6 @@ import { UserComponent } from './components/user/user.component';
     LoginComponent,
     UsersComponent,
     UserComponent,
-    MatIcon
   ],
   imports: [
     BrowserModule,

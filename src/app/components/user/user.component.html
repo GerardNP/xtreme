@@ -1,4 +1,4 @@
-<div class="container font-weight-bolder h-100 align-middle text-center" *ngIf="jotason">
+<div class="container h-100 align-middle text-center" *ngIf="jotason">
     <h1 class="titulo">Detalles del usuario</h1>
     <h1 class="titulo">{{ jotason.identity.name+" "+jotason.identity.firstname }}</h1>
     <div class="row fila">
@@ -6,27 +6,33 @@
         <div class="col-12 col-lg-6">
             <div class="row">
                 <div class="col-8">
-                    <div class="row">
-                        <div class="col-7">
+                    <div class="row h-100">
+                        <div class="col-7 my-auto">
                             <img src="assets/img/user/user.png" alt="..." class="img-thumbnail ">
                         </div>
-                        <div class="col-5">
+                        <div class="col-5 my-auto">
                             <div class="row">
-                                <h4 class="subtitulo">Datos personales</h4>
-                                <div class="col-12"><p><mat-icon aria-hidden="false" aria-label="Example home icon">home</mat-icon>{{ jotason.identity.name }} </p></div>
-                                <div class="col-12"><p><mat-icon class="mat-icon-rtl-mirror" svgIcon="thumb-up"></mat-icon>{{ jotason.identity.firstname+" "+jotason.identity.secondname }}</p></div>
-                                <div class="col-12"><p>{{ jotason.identifier }}</p></div>
+                                <!--<h3 class="subtitulo">Datos personales</h3>-->
+                                <div class="col-12">
+                                    <p><span>Nombre</span><br /> {{ jotason.identity.name }} </p>
+                                </div>
+                                <div class="col-12">
+                                    <p><span>Apellidos</span><br /> {{ jotason.identity.firstname+" "+jotason.identity.secondname }}</p>
+                                </div>
+                                <div class="col-12">
+                                    <p><span>DNI</span><br /> {{ getDNI(jotason.identifier) }}</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="col-4">
                     <div class="row">
-                        <h3 class="subtitulo" style="background-color: transparent !important;"></h3><br/>
-                        <div class="col-12">{{ jotason.phone_number }}</div>
-                        <div class="col-12">Sexo: {{ jotason.identity.sex }}</div>
-                        <div class="col-12">{{ jotason.identity.dateofbirth }}</div>
-                        <div class="col-12">{{ jotason.identity.height }}cm</div>
+                        <!-- <h3 class="subtitulo" style="background-color: transparent !important;"></h3><br /> -->
+                        <div class="col-12"><p><span>Numero</span> <br/>{{ jotason.phone_number }}</p></div>
+                        <div class="col-12"><p><span>Sexo</span> <br/>{{ pintarGenero(jotason.identity.sex) }}</p></div>
+                        <div class="col-12"><p><span>Fecha de nacimiento</span><br/>{{ dateToEsLocale(jotason.identity.dateofbirth) }}</p></div>
+                        <div class="col-12"><p><span>Estatura</span><br />{{ jotason.identity.height }}cm</p></div>
                     </div>
                 </div>
             </div>

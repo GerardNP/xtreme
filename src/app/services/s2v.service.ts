@@ -8,6 +8,7 @@ export class S2vService {
 
     public url: string;
     public token: string;
+    public usuarios: Observable<any>;
 
     constructor(private _http: HttpClient) {
         this.url = Global.urls2vapi;

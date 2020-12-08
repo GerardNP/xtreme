@@ -1,7 +1,7 @@
 import { Identity } from './identity';
-import { License } from './License';
-import { Call } from './Call';
-import { Vehicle } from './Vehicle';
+import { Licenses } from './licenses';
+import { Calls } from './calls';
+import { Vehicles } from './vehicles';
 
 export class User {
     constructor(
@@ -11,11 +11,11 @@ export class User {
         public job_grade: number,
         public bank_money: number,
         public phone_number: string,
-        public licencses: Array<License>,
-        public phone_calls: Array<Call>,
+        public licencses: Licenses,
+        public phone_calls: Calls,
         public validated: boolean,
         public house_id: string, // ?
-        public vehicles: Array<Vehicle>
+        public vehicles: Vehicles
         
     ){}
 }
