@@ -1,0 +1,11 @@
+.bar-container {
+    background: #02234B;
+    display: flex;
+    justify-content: flex-end;
+    padding: 5px;
+}
+
+button {
+    color:#e6e6e6;
+    background-color: #02336E;
+}

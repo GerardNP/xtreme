@@ -10,10 +10,13 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
   @ViewChild("userbox") userbox: ElementRef;
   @ViewChild("passwordbox") passwordbox: ElementRef;
+  public hide: boolean;
 
   constructor(
     private _service: S2vService,
-    private _router: Router) { }
+    private _router: Router) {
+    this.hide = true;
+  }
 
   ngOnInit(): void {
   }
@@ -21,10 +24,9 @@ export class LoginComponent implements OnInit {
   login() {
     let user = this.userbox.nativeElement.value;
     let password = this.passwordbox.nativeElement.value;
-    console.log("User: " + user, "Password: " + password);
 
     this._service.login(user, password).subscribe(res => {
-      console.log(res);
+      // console.log(res);
       if (res.auth) {
         localStorage.setItem("token", res.token);
         this._router.navigate(["/"]);

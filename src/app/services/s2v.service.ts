@@ -13,9 +13,9 @@ export class S2vService {
         this.url = Global.urls2vapi;
     }
 
+
     login(usr, pwd): Observable<any> {
         let request = "authenticate/";
-        console.log("USR: " + usr, "PWD: " + pwd);
         return this._http.post(this.url + request, null, {
             headers: {
                 password: pwd,
@@ -30,6 +30,9 @@ export class S2vService {
         return this._http.get(this.url + request, {
             headers: {
                 "access-token": this.token,
+                "name": "",
+                "firstname": "",
+                "secondname": ""
             }
         });
     }

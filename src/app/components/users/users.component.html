@@ -1,1 +1,57 @@
-<p>users works!</p>
+<app-bar></app-bar>
+
+<div class="main-container">
+    <div class="container">
+        <mat-form-field appearance="outline">
+            <mat-label>Búsqueda</mat-label>
+            <input type="text" name="searchbox" placeholder="Nombre, Apellido materno, Apellido paterno" autofocus
+                [(ngModel)]="searchtxt" matInput>
+            <mat-icon fontSet="fas" fontIcon="fa-search" matSuffix color="primary"></mat-icon>
+            <mat-hint>El orden de los parámetros no afecta el resultado.</mat-hint>
+        </mat-form-field>
+
+
+        <ng-container *ngIf="!users">
+            <div class="loader-container">
+                <mat-spinner></mat-spinner>
+            </div>
+        </ng-container>
+        <ng-container *ngIf="users">
+            <div class="table-responsive text-center">
+                <table class="table table-hover bg-light">
+                    <thead>
+                        <tr class="">
+                            <th>Nombre</th>
+                            <th>Apellidos</th>
+                            <th>Sexo</th>
+                            <th>Cumpleaños</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let user of users | search: searchtxt | paginate: { 
+                                itemsPerPage: pageSize,
+                                currentPage: page }" (click)="showDetails(user.identifier)">
+                            <td>{{ user.identity.name }}</td>
+                            <td>{{ user.identity.firstname }} {{ user.identity.secondname }}</td>
+                            <td>
+                                <ng-container *ngIf="user.identity.sex == 'm'">
+                                    <mat-icon fontSet="fas" fontIcon="fa-mars" class="fa-lg"></mat-icon>
+                                </ng-container>
+                                <ng-container *ngIf="user.identity.sex == 'f'">
+                                    <mat-icon fontSet="fas" fontIcon="fa-venus"></mat-icon>
+                                </ng-container>
+                            </td>
+                            <td>{{ user.identity.dateofbirth | date:"dd/MM/yyyy"}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination-container">
+                <pagination-controls class="pagination-controls" (pageChange)="page=$event" maxSize="9"
+                    previousLabel="Anterior" nextLabel="Siguiente" autoHide="true" responsive="true">
+                </pagination-controls>
+            </div>
+        </ng-container>
+    </div>
+</div>
