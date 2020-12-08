@@ -1,0 +1,85 @@
+/*{
+    outline:1px solid red;
+}*/
+
+
+
+.img-thumbnail {
+  
+  width: 100%;
+}
+
+.container {
+  background-color: #d3d3d3 !important;
+}
+
+.fila {
+  padding: 15px 0;
+  margin: 15px 0;
+
+  border: 3px solid #333333;
+
+  background: #ffffff;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.titulo,
+.subtitulo {
+  width: max-content;
+  padding: 0 10px;
+
+  background-color: #333333;
+  color: whitesmoke;
+  outline: 5px solid dashed;
+}
+
+div[class^="row"] .titulo ~ p,
+div[class^="row"] .subtitulo ~ p {
+  text-align: center;
+}
+
+div[class^="row"] > .titulo {
+  background-color: 1px solid black;
+}
+
+div[class^="row"] > .subtitulo {
+  width: auto;
+  text-align: center !important;
+  background-color: 1px solid #333;
+}
+
+
+.subtitulo{
+  margin: 0 auto;
+}
+
+div[class^="row"] .titulo ~ p,
+div[class^="row"] .subtitulo ~ p,
+div[class^="row"] .titulo ~ div,
+div[class^="row"] .subtitulo ~ div{
+  padding: 10px 2px;
+}
+
+span{
+  font-size: 18px !important;
+  font-weight: 900 !important;
+  color: black;
+}
+
+div p{
+  font-size: 1.6em !important;
+  color:rgb(0, 238, 255);
+}
+
+body > app-root > app-user > div > div:nth-child(3) > div:nth-child(1) > div > div.col-8 > div > div.col-7{
+  display: flex !important;
+    align-items: center !important;
+    flex-wrap: wrap !important;
+}
+
+body > app-root > app-user > div > div:nth-child(3) > div:nth-child(1) > div > div.col-8 > div{
+  height: 100% !important;
+}
