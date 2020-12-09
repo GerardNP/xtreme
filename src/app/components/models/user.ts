@@ -16,6 +16,5 @@ export class User {
         public validated: boolean,
         public house_id: string, // ?
         public vehicles: Vehicles
-        
     ){}
 }

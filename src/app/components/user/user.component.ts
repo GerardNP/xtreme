@@ -25,7 +25,9 @@ export class UserComponent implements OnInit {
   public jotason: Object;
   public o: Object;
   public user: User;
-  public hola: Array<Object>;
+  public jobs: Object;
+  public job: Object;
+  public trabajo: Object;
 
   constructor(private _service: S2vService, private _activeR: ActivatedRoute, private _router: Router,) {
 
@@ -36,7 +38,7 @@ export class UserComponent implements OnInit {
         "name": "Tururu",
         "firstname": "Testing",
         "secondname": "Dev",
-        "sex": "m",
+        "sex": "f",
         "dateofbirth": "1994-12-12",
         "height": "182"
       },
@@ -60,14 +62,29 @@ export class UserComponent implements OnInit {
         },
         "AVD 470": {
           "model": "asea",
-          "plate": "AVD 469"
+          "plate": "AVD 470"
         },
         "AVD 471": {
           "model": "asea",
-          "plate": "AVD 469"
+          "plate": "AVD 471"
         },
       }
     };
+
+    this.trabajo = {
+      "label": "Tendero",
+      "name": "Jefe",
+      job_grade:{
+        "grade": 0,
+        "salary": 200,
+        "skin_male": [],
+        "skin_female": [],
+        "label": "Jefe",
+        "name": "boss",
+        "job_name": "Shop_20"
+      }
+    }
+
     /*
     this.jotason =
     {
@@ -115,11 +132,26 @@ export class UserComponent implements OnInit {
     return dni[1];
   }
 
+  volver(){
+    this._router.navigate(['/']);
+  }
+
+  licencias(){
+    var obj = this.jotason.licenses;
+    var str = "";
+    Object.entries(obj).forEach(([key, value]) => {
+        str+=value+", ";
+    });
+    str = str.slice(0, str.length - 1);
+    str = str.slice(0, -1);
+    return str;
+  }
+
   ngOnInit(): void {
     this._activeR.params.subscribe((params: Params) => {
 
       if (params.id) {
-        this.obtenerUsuario(params.id);
+        // this.obtenerUsuario(params.id);
       } else {
         // mostrar mensaje "no se ha encontrado ese usuario, hubo un error"
         // this._router.navigate(['/']);
@@ -131,28 +163,59 @@ export class UserComponent implements OnInit {
 
   obtenerUsuario(id) {
     this._service.getUsers().subscribe(res => {
+
       for (let i = 0; i < res.length; i++) {
         const e = res[i];
         var dni = this.getDNI(e.identifier);
         if (dni == id) {
-          //this.jotason = e;
+          console.log(e.job);
           this.user =
             new User(
               e.identifier,
               new Identity(e.identity.name, e.identity.firstname, e.identity.secondname, e.identity.sex, e.identity.dateofbirth, e.identity.height),
-              e.identity.job,
-              e.identity.job_grade,
-              e.identity.bank_money,
-              e.identity.phone_number,
+              e.job,
+              e.job_grade,
+              e.bank_money,
+              e.phone_number,
               new Licenses(e.licenses),
               new Calls(e.phone_calls),
               e.validated,
               e.house_id,
               new Vehicles(e.vehicles)
             );
-          console.log(this.user);
-        };
-      }
-    });
+          
+          this._service.getJobs().subscribe(res => {
+            // SUSTITUIR this.jotason por this.user
+            this.jobs = res;
+            var object = res[this.user.job].job_grades;
+            var claves = Object.keys(object);
+            const entries = Object.entries(object);
+            console.log(entries);
+            for (const [e, propiedades] of entries) {
+              console.log("cargo: " + e);
+              // PONE QUE DA ERROR EN .grade segun VSCODE, PERO NO DA, ITS A TRAP. FK VSCODE (:)
+              console.log(propiedades);
+              /*
+              if (propiedades.grade == this.user.job_grade) {
+                console.log("este es el trabajo");
+                this.job = {
+                  "label": res[this.user.job].label,
+                  "name": res[this.user.job].name,
+                  "job_grade": propiedades
+                }
+              }
+              */
+            }
+            console.log(this.job);
+          }); // getJobs()
+
+
+        }; // if
+      } // for
+    }, error => {
+      // carga los datos de local
+      console.log("No carga la peticion");
+    }); // getUsers
+
   } // funcion obtenerUsuario(id)
 }

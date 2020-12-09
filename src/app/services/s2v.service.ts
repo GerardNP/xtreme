@@ -38,4 +38,14 @@ export class S2vService {
         });
     }
 
+    getJobs(): Observable<any> {
+        let request = "jobs/";
+        this.token = localStorage.getItem("token");
+        return this._http.get(this.url + request, {
+            headers: {
+                "access-token": this.token,
+            }
+        });
+    }
+
 }
