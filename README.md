@@ -9,8 +9,7 @@ _Se pide diseñar una aplicacion para representar datos de la API de un videojue
 
 ## Construido con 🛠️
 
-* [Angular](http://www.dropwizard.io/1.0.2/docs/) - El framework de front-end bastante popular
-* [Maven](https://maven.apache.org/) - Manejador de dependencias
+* [Angular](https://angular.io/) - El framework de front-end muy popular a dia de hoy.
 
 ### ¿Por que Angular?
 _Angular es uno de los frameworks de front-end mas popurales, el cual usa modelo MVC y a pesar de su complejidad a la hora de familiarizarte con el framework, este es una de las mejores opciones actualmente._
