@@ -1,83 +1,118 @@
-<app-bar></app-bar>
+<!-- 
+    jotaason por useer
+    trabaajo por joob
+-->
+<div id="abuelo">
+    <div class="container h-100 align-middle text-center" *ngIf="user">
+        <h1 class="text-left tituloxl" style="color: black !important;">Detalles del usuario</h1>
+        <h1 class="text-left tituloxl">{{ user.identity.name+" "+user.identity.firstname }}</h1>
+        <div class="row fila">
 
-<div class="container h-100 align-middle text-center mt-4" *ngIf="jotason">
-    <h1 class="titulo">Detalles del usuario</h1>
-    <h1 class="titulo">{{ jotason.identity.name+" "+jotason.identity.firstname }}</h1>
-    <div class="row fila">
-
-        <div class="col-12 col-lg-6">
-            <div class="row">
-                <div class="col-8">
-                    <div class="row h-100">
-                        <div class="col-7 my-auto">
-                            <img src="assets/img/user/user.png" alt="..." class="img-thumbnail ">
-                        </div>
-                        <div class="col-5 my-auto">
-                            <div class="row">
-                                <!--<h3 class="subtitulo">Datos personales</h3>-->
-                                <div class="col-12">
-                                    <p><span>Nombre</span><br /> {{ jotason.identity.name }} </p>
-                                </div>
-                                <div class="col-12">
-                                    <p><span>Apellidos</span><br />
-                                        {{ jotason.identity.firstname+" "+jotason.identity.secondname }}</p>
-                                </div>
-                                <div class="col-12">
-                                    <p><span>DNI</span><br /> {{ getDNI(jotason.identifier) }}</p>
+            <div class="col-12 col-lg-6">
+                <div class="row">
+                    <div class="col-8">
+                        <div class="row h-100">
+                            <div class="col-7 my-auto">
+                                <div *ngIf="item==='somevalue'"></div>
+                                <ng-container *ngIf="pintarGenero(user.identity.sex) === 'Masculino'; else chica">
+                                    <img src="assets/img/user/male.jpg" alt="..." class="img-thumbnail ">
+                                </ng-container>
+                                <ng-template #chica>
+                                    <img src="assets/img/user/female.png" alt="..." class="img-thumbnail ">
+                                </ng-template>
+                            </div>
+                            <div class="col-5 my-auto">
+                                <div class="row">
+                                    <!--<h3 class="subtitulo">Datos personales</h3>-->
+                                    <div class="col-12">
+                                        <p class="mt-1"><span>Nombre</span> {{ user.identity.name }} </p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mt-1"><span>Apellidos</span>
+                                            {{ user.identity.firstname+" "+user.identity.secondname }}</p>
+                                    </div>
+                                    <div class="col-12">
+                                        <p class="mt-1"><span>DNI</span> {{ getDNI(user.identifier) }}</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-4">
-                    <div class="row">
-                        <!-- <h3 class="subtitulo" style="background-color: transparent !important;"></h3><br /> -->
-                        <div class="col-12">
-                            <p><span>Numero</span> <br />{{ jotason.phone_number }}</p>
-                        </div>
-                        <div class="col-12">
-                            <p><span>Sexo</span> <br />{{ pintarGenero(jotason.identity.sex) }}</p>
-                        </div>
-                        <div class="col-12">
-                            <p><span>Fecha de nacimiento</span><br />{{ dateToEsLocale(jotason.identity.dateofbirth) }}
-                            </p>
-                        </div>
-                        <div class="col-12">
-                            <p><span>Estatura</span><br />{{ jotason.identity.height }}cm</p>
+                    <div class="col-4">
+                        <div class="row">
+                            <!-- <h3 class="subtitulo" style="background-color: transparent !important;"></h3><br /> -->
+                            <div class="col-12">
+                                <p class="mt-1"><span>Numero</span> {{ user.phone_number }}</p>
+                            </div>
+                            <div class="col-12">
+                                <p class="mt-1"><span>Sexo</span> {{ pintarGenero(user.identity.sex) }}</p>
+                            </div>
+                            <div class="col-12">
+                                <p class="mt-1"><span>Fecha de
+                                        nacimiento</span>{{ dateToEsLocale(user.identity.dateofbirth) }}</p>
+                            </div>
+                            <div class="col-12">
+                                <p class="mt-1"><span>Estatura</span>{{ user.identity.height }}cm</p>
+                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-        <div class="col-12 col-lg-6">
-            <div class="row">
-                <div class="col-4">
-                    <h2 class="subtitulo">OFICIO</h2>
-                    <p>{{ jotason.job }}</p>
-                </div>
+            <div class="col-12 col-lg-6 ">
+                <div class="row h-100">
+                    <div class="col-4 h-100">
+                        <div class="my-4">
+                            <h2 class="subtitulo">OFICIO</h2>
+                            <p>{{ user.job }}</p>
+                        </div>
+                    </div>
 
-                <div class="col-4">
-                    <h2 class="subtitulo">DINERO</h2>
-                    <p>{{ jotason.bank_money }}</p>
-                </div>
+                    <div class="col-4 h-100">
+                        <div class="my-4">
+                            <h2 class="subtitulo">DINERO</h2>
+                            <p>{{ user.bank_money }}</p>
+                        </div>
+                    </div>
 
-                <div class="col-4">
-                    <h2 class="subtitulo">LICENCIA</h2>
-                    <p>{{ jotason.licenses.weapon }}</p>
+                    <div class="col-4 h-100">
+                        <div class="my-4">
+                            <h2 class="subtitulo">LICENCIA(S)</h2>
+                            <div id="licencias">
+                                 <p>{{ licencias() }}</p> 
+                                <!--<ng-container *ngFor="let licencia of user.licenses | keyvalue">
+                                    <div>{{licencia.value}}</div>
+                                </ng-container>-->
+                            </div>
+                        </div>
+                    </div>
+                    <ng-container *ngIf="ujob">
+                        <div class="col-6 h-100">
+                            <div class="my-4">
+                                <h2 class="subtitulo">TRABAJO</h2>
+                                <p>{{ ujob.label }}</p>
+                            </div>
+                        </div>
+                        <div class="col-6 h-100">
+                            <div class="my-4">
+                                <h2 class="subtitulo">CARGO</h2>
+                                <p>{{ ujob.name }}</p>
+                            </div>
+                        </div>
+                    </ng-container>
                 </div>
             </div>
-        </div>
 
-    </div><!-- row -->
-    <h1 class="titulo">Vehículos</h1>
-    <div class="row px-2 fila">
+        </div><!-- row -->
+        <h1 class="text-left tituloxl">Vehículo(s)</h1>
+        <!-- BUCLE -->
+        <div class="row px-2 fila" *ngFor="let item of user.vehicles | keyvalue">
 
-        <div class="col-3">
-            <img src="assets/img/user/car.png" alt="..." class="img-thumbnail">
-        </div>
+            <div class="col-5 col-lg-3">
+                <img src="assets/img/user/cars/car5.png" alt="..." class="img-thumbnail">
+            </div>
 
-        <!--
-            <div class="col-4" *ngFor="let obj of jotason.vehicles">
+            <!--
+            <div class="col-4" *ngFor="let obj of user.vehicles">
                 {{ obj }}
                 <ng-container *ngFor="let car of obj">
                     <p>
@@ -86,29 +121,45 @@
                     </p>
                 </ng-container>
             </div>
-        -->
+            -->
 
-        <div class="col-4">
-            <h2 class="subtitulo">MODELO</h2>
-            <p>{{ jotason.vehicles["AVD 469"].model}}</p>
-        </div>
-
-        <div class="col-5">
-            <h2 class="subtitulo">MATRICULA</h2>
-            <p>{{ jotason.vehicles["AVD 469"].plate}}</p>
-        </div>
-
-        <!--
-        <div class="col-3">
-            <div id="matricula" class="">
-                <img src="assets/img/user/matricula.png" alt="..." class="img-thumbnail h-50 ">
+            <div class="col-7 col-lg-4">
+                <h2 class="subtitulo">MODELO</h2>
+                <p>{{item.key}}:</p>
+                <h2 class="subtitulo">MATRÍCULA</h2>
+                <p>{{item.value.plate}}</p>
             </div>
-        </div>
-        -->
 
-        <ng-container *ngFor="let v of this.coches">
-            <li>{{ v.model }}</li>
-        </ng-container>
+            <div class="col-12 col-lg-5">
+                <!-- <p>{{ user.vehicles["AVD 469"].plate}}</p> -->
+                <div id="matricula">
+                    <p>{{ item.value.plate}}</p>
+                </div>
+            </div>
 
-    </div> <!-- row -->
-</div> <!-- container -->
+            <!--
+            <div class="col-3">
+                <div id="matricula" class="">
+                    <img src="assets/img/user/matricula.png" alt="..." class="img-thumbnail h-50 ">
+                </div>
+            </div>
+            -->
+
+            <ng-container *ngFor="let v of this.coches">
+                <li>{{ v.model }}</li>
+            </ng-container>
+
+        </div> <!-- row -->
+        <button id="volver" type="button" class="btn btn-primary text-center mt-5" (click)="volver()">VOLVER</button>
+    </div> <!-- container -->
+</div>
+
+
+<!--
+    ITERAR OBJETOS
+    https://stackoverflow.com/questions/45819123/how-to-loop-over-object-properties-with-ngfor-in-angular
+    
+    <div *ngFor="let item of object | keyvalue">
+        {{item.key}}:{{item.value}}
+    </div>
+-->

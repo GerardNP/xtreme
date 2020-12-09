@@ -2,15 +2,20 @@
     outline:1px solid red;
 }*/
 
-
+span {
+  display: block;
+}
 
 .img-thumbnail {
   
   width: 100%;
 }
 
-.container {
-  background-color: #d3d3d3 !important;
+.container, #abuelo {
+  /* background-color: #d3d3d3 !important; */
+  background-color: #DBE3ED;
+  height: 100% !important;
+  padding-bottom: 1510px !important;
 }
 
 .fila {
@@ -24,6 +29,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  border-radius: 5px;
 }
 
 .titulo,
@@ -63,23 +69,69 @@ div[class^="row"] .subtitulo ~ div{
   padding: 10px 2px;
 }
 
-span{
+div p{
+  font-size: 1.6em !important;
+  color: rgb(42, 104, 186) !important;
+    font-weight: bold;
+}
+
+
+div[class^="col"] div p > span{
+  margin: 10px 0 !important;
   font-size: 18px !important;
-  font-weight: 900 !important;
   color: black;
 }
 
-div p{
-  font-size: 1.6em !important;
-  color:rgb(0, 238, 255);
-}
-
-body > app-root > app-user > div > div:nth-child(3) > div:nth-child(1) > div > div.col-8 > div > div.col-7{
-  display: flex !important;
-    align-items: center !important;
-    flex-wrap: wrap !important;
-}
-
-body > app-root > app-user > div > div:nth-child(3) > div:nth-child(1) > div > div.col-8 > div{
+body > app-root > app-user > div > div:nth-child(3) > div:nth-child(2), body > app-root > app-user > div > div:nth-child(3) > div:nth-child(2) > div{
   height: 100% !important;
+}
+
+body > app-root > app-user > div > div:nth-child(3) > div:nth-child(2) > div div{
+  background-color: black !important;
+}
+
+#matricula{
+  background-image: url('../../../assets/img/user/matriculas.png');
+  background-position: -12px 170px;
+  height: 170px;
+  max-width: 343px;
+    margin: 0 auto;
+    
+}
+
+#matricula > p{
+  position: relative;
+  bottom: -93px;
+  font-size: 3.5rem !important;
+  color: black !important;
+}
+
+.tituloxl{
+  font-weight: bolder !important;
+  color: rgb(42, 104, 186) !important;
+  /*
+  BARRA FONDO: #3E597C
+  BOTON: 354C6A
+
+  ROJO: d64550
+  GRIS: 6f6f6f
+  BLANCO: fff2f5 / ffffff
+  */
+}
+
+#volver{
+  background-color: #354C6A;
+}
+
+
+#licencias{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#licencias span{
+  font-size: 1.2em !important;
+  color: rgb(42, 104, 186) !important;
+  font-weight: bold;
 }
