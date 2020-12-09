@@ -137,7 +137,8 @@ export class UserComponent implements OnInit {
   }
 
   licencias(){
-    var obj = this.jotason.licenses;
+    // si trabajas en local en vez de user es jotason
+    var obj = this.user.licenses;
     var str = "";
     Object.entries(obj).forEach(([key, value]) => {
         str+=value+", ";
@@ -195,7 +196,7 @@ export class UserComponent implements OnInit {
               console.log("cargo: " + e);
               // PONE QUE DA ERROR EN .grade segun VSCODE, PERO NO DA, ITS A TRAP. FK VSCODE (:)
               console.log(propiedades);
-              /*
+              
               if (propiedades.grade == this.user.job_grade) {
                 console.log("este es el trabajo");
                 this.job = {
@@ -204,7 +205,7 @@ export class UserComponent implements OnInit {
                   "job_grade": propiedades
                 }
               }
-              */
+              
             }
             console.log(this.job);
           }); // getJobs()

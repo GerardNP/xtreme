@@ -8,8 +8,6 @@ const routes: Routes = [
   { path: "login", component: LoginComponent },
   { path: "", component: UsersComponent },
   { path: "user/:id", component: UserComponent },
-  // para trabajar en local
-  { path: "user", component: UserComponent }
 ];
 
 @NgModule({
