@@ -1,6 +1,6 @@
 # Xtreme 🚀
 
-_Xtreme es un proyecto formado por 2 personas que ha surgido para la realizacion de la #1 hackatlon de la empresa Sogeti en colaboracion con S2V Esports _
+_Xtreme es un proyecto formado por 2 personas que ha surgido para la realizacion de la #1 hackatlon de la empresa Sogeti en colaboracion con S2V Esports_
 (https://www.sogeti.es/explora/eventos/hackathon-S2V/)
 
 ## ¿Sobre que trata la hackalon?
