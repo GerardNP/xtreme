@@ -2,12 +2,11 @@
 
 <div class="main-container">
     <div class="container">
-        <mat-form-field appearance="outline">
+        <mat-form-field appearance="outline" color="white">
             <mat-label>Búsqueda</mat-label>
             <input type="text" name="searchbox" placeholder="Nombre, Apellido materno, Apellido paterno" autofocus
-                [(ngModel)]="searchtxt" matInput>
+                [(ngModel)]="searchtxt" matInput color="white">
             <mat-icon fontSet="fas" fontIcon="fa-search" matSuffix color="primary"></mat-icon>
-            <mat-hint>El orden de los parámetros no afecta el resultado.</mat-hint>
         </mat-form-field>
 
 
@@ -19,7 +18,7 @@
         <ng-container *ngIf="users">
             <div class="table-responsive text-center">
                 <table class="table table-hover bg-light">
-                    <thead>
+                    <thead class="font-weight-light">
                         <tr class="">
                             <th>Nombre</th>
                             <th>Apellidos</th>
@@ -35,10 +34,10 @@
                             <td>{{ user.identity.firstname }} {{ user.identity.secondname }}</td>
                             <td>
                                 <ng-container *ngIf="user.identity.sex == 'm'">
-                                    <mat-icon fontSet="fas" fontIcon="fa-mars" class="fa-lg"></mat-icon>
+                                    <mat-icon fontSet="fas" fontIcon="fa-mars" class="fa-lg icon-blue"></mat-icon>
                                 </ng-container>
                                 <ng-container *ngIf="user.identity.sex == 'f'">
-                                    <mat-icon fontSet="fas" fontIcon="fa-venus"></mat-icon>
+                                    <mat-icon fontSet="fas" fontIcon="fa-venus" class="fa-lg icon-red"></mat-icon>
                                 </ng-container>
                             </td>
                             <td>{{ user.identity.dateofbirth | date:"dd/MM/yyyy"}}</td>

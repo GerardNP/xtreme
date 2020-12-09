@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,12 +6,9 @@ import { Router } from '@angular/router';
   templateUrl: './bar.component.html',
   styleUrls: ['./bar.component.css']
 })
-export class BarComponent implements OnInit {
+export class BarComponent {
 
   constructor(private _router: Router) { }
-
-  ngOnInit(): void {
-  }
 
   logout() {
     if (localStorage.getItem("token")) {
@@ -20,4 +17,7 @@ export class BarComponent implements OnInit {
     }
   }
 
+  home() {
+    this._router.navigate(["/"]);
+  }
 }

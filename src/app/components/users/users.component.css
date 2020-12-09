@@ -1,23 +1,27 @@
+
 .main-container {
     height: 100vh;
-    background-color: #123560d2;
-    color: #ffffff;
+    background-color: #DBE3ED;
     padding-top: 1rem;
 }
 
+
+/* SEARCH */
 mat-form-field {
     width: 100%;
 }
 
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+  }
+
+/* TABLE */
 .loader-container {
     padding-top: 4rem;
 }
 mat-spinner {
     margin: auto;
-}
-
-.table-responsive {
-    margin-top: 2rem;
 }
 
 table, .table-responsive {
@@ -29,14 +33,29 @@ table th {
 }
 
 thead {
-    background: #6c7ae0;
+    background: #354C6A;
     color: #fff2f5;
+    font-size: 1rem;
+}
+
+tbody > tr:hover {
+    background: #EDF1F6;
 }
 
 tbody {
     color: #6f6f6f;
 }
 
+.icon-blue {
+    color: #2d4059;
+}
+
+.icon-red {
+    color: #ea5455;
+}
+
+
+/* PAGINATION */
 .pagination-container {
     display: flex;
     justify-content: center;
@@ -46,3 +65,4 @@ tbody {
 .pagination-controls /deep/ .current{
     color: #e6e6e6;
 }
+

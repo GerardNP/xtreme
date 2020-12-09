@@ -1,5 +1,19 @@
-<div class="main-container">
+<ng-container *ngIf="animation">
+    <div class="animation-container-root">
+        <div class="animation-container container">
+            <div class="row">
+                <div class="col-6 p-0 d-flex justify-content-start align-items-end">
+                    <img src="./../../../assets/images/logo.png" alt="" class="animate__animated animate__fadeInLeft">
+                </div>
+                <div class="col-6 d-flex justify-content-start align-items-center p-0">
+                    <p class="animate__animated animate__fadeInRight">TREME</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>
 
+<div class="main-container">
     <div class="form-container">
         <img src="./../../../assets/images/logo-policia.png" alt="">
 
@@ -24,5 +38,4 @@
             <button mat-raised-button color="primary">Iniciar sesión</button>
         </form>
     </div>
-
 </div>

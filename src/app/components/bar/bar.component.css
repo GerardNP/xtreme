@@ -1,11 +1,21 @@
+
 .bar-container {
-    background: #02234B;
+    background: #3E597C;
     display: flex;
     justify-content: flex-end;
     padding: 5px;
 }
 
 button {
-    color:#e6e6e6;
-    background-color: #02336E;
+    display: inline-block;
+    margin-right: 5px;
+    color : #ffffff
+}
+
+.btn-home {
+    background: #354C6A;
+}
+
+.btn-exit {
+    background-color: #d64550;
 }

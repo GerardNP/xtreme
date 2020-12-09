@@ -11,14 +11,30 @@ export class LoginComponent implements OnInit {
   @ViewChild("userbox") userbox: ElementRef;
   @ViewChild("passwordbox") passwordbox: ElementRef;
   public hide: boolean;
+  public animation: boolean;
 
   constructor(
     private _service: S2vService,
     private _router: Router) {
     this.hide = true;
+    this.animation = true
   }
 
   ngOnInit(): void {
+    if (localStorage.getItem("token")) {
+      this._router.navigate(['/']);
+    } else {
+      setTimeout(this.switchAnimation, 2000);
+      setTimeout(() => {
+        this.animation = false;
+      }, 3800);
+    }
+  }
+
+  switchAnimation(): void {
+    document.querySelector('img').className = "animate__animated animate__fadeOut";
+    document.querySelector('p').className = "animate__animated animate__fadeOut";
+    document.querySelector(".animation-container-root").classList.add("hide");
   }
 
   login() {
