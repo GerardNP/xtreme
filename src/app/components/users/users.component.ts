@@ -58,7 +58,7 @@ export class UsersComponent implements OnInit {
       //       "name": "Marco",
       //       "firstname": "White",
       //       "secondname": "Mont",
-      //       "sex": "m",
+      //       "sex": "f",
       //       "dateofbirth": "1988-01-24",
       //       "height": "174"
       //     },

@@ -74,7 +74,7 @@ export class UserComponent implements OnInit {
     this.trabajo = {
       "label": "Tendero",
       "name": "Jefe",
-      job_grade:{
+      job_grade: {
         "grade": 0,
         "salary": 200,
         "skin_male": [],
@@ -132,16 +132,16 @@ export class UserComponent implements OnInit {
     return dni[1];
   }
 
-  volver(){
+  volver() {
     this._router.navigate(['/']);
   }
 
-  licencias(){
+  licencias() {
     // si trabajas en local en vez de user es jotason
     var obj = this.user.licenses;
     var str = "";
     Object.entries(obj).forEach(([key, value]) => {
-        str+=value+", ";
+      str += value + ", ";
     });
     str = str.slice(0, str.length - 1);
     str = str.slice(0, -1);
@@ -149,17 +149,22 @@ export class UserComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this._activeR.params.subscribe((params: Params) => {
+    if (!localStorage.getItem("token")) {
+      this._router.navigate(["/login"]);
 
-      if (params.id) {
-        // this.obtenerUsuario(params.id);
-      } else {
-        // mostrar mensaje "no se ha encontrado ese usuario, hubo un error"
-        // this._router.navigate(['/']);
-        console.log("no encuentro ese usuario");
-      }
+    } else {
+      this._activeR.params.subscribe((params: Params) => {
 
-    })
+        if (params.id) {
+          // this.obtenerUsuario(params.id);
+        } else {
+          // mostrar mensaje "no se ha encontrado ese usuario, hubo un error"
+          // this._router.navigate(['/']);
+          console.log("no encuentro ese usuario");
+        }
+
+      })
+    }
   }
 
   obtenerUsuario(id) {
@@ -184,7 +189,7 @@ export class UserComponent implements OnInit {
               e.house_id,
               new Vehicles(e.vehicles)
             );
-          
+
           this._service.getJobs().subscribe(res => {
             // SUSTITUIR this.jotason por this.user
             this.jobs = res;
@@ -196,8 +201,8 @@ export class UserComponent implements OnInit {
               console.log("cargo: " + e);
               // PONE QUE DA ERROR EN .grade segun VSCODE, PERO NO DA, ITS A TRAP. FK VSCODE (:)
               console.log(propiedades);
-              
-              if (propiedades.grade == this.user.job_grade) {
+
+              if (propiedades[e].grade == this.user.job_grade) {
                 console.log("este es el trabajo");
                 this.job = {
                   "label": res[this.user.job].label,
@@ -205,7 +210,7 @@ export class UserComponent implements OnInit {
                   "job_grade": propiedades
                 }
               }
-              
+
             }
             console.log(this.job);
           }); // getJobs()

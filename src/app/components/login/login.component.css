@@ -72,7 +72,6 @@
     padding: 1.5rem 2rem ;
     width: 80%;
     margin: auto;
-    /* opacity: 0.5; */
 }
 
 .form-container img {
@@ -81,8 +80,6 @@
     display: block;
     margin: auto;
     margin-bottom: 1rem;
-    /* border-radius: 10px; */
-    /* filter: blur(1px); */
     background-color: #00012d;
 }
 

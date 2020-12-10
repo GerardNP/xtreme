@@ -9,12 +9,8 @@ export class SearchPipe implements PipeTransform {
     if (!args) {
       return users;
     }
-    // console.log("USUARIOS", users);
-    // console.log("ARGUMENTOS", args)
     args = args.trim(); // Eliminamos todos los espacios al incio y al final
-    // console.log(arg);
     args = args.split(" "); // Si buscamos más de una palabra las separamos
-    // console.log("ARGS", args);
     const results = [];
     for (const user of users) {
       if (args.length == 1) {

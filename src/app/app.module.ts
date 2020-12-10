@@ -21,7 +21,6 @@ import { UserComponent } from './components/user/user.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { BarComponent } from './components/bar/bar.component';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
-import { IntroComponent } from './components/intro/intro.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +30,6 @@ import { IntroComponent } from './components/intro/intro.component';
     SearchPipe,
     UserComponent,
     BarComponent,
-    IntroComponent,
   ],
   imports: [
     BrowserModule,
@@ -47,7 +45,6 @@ import { IntroComponent } from './components/intro/intro.component';
     // USERS
     NgxPaginationModule,
     MatProgressSpinnerModule,
-
   ],
   providers: [S2vService],
   bootstrap: [AppComponent]

@@ -11,10 +11,10 @@ export class User {
         public job_grade: number,
         public bank_money: number,
         public phone_number: string,
-        public licencses: Licenses,
+        public licenses: Licenses,
         public phone_calls: Calls,
         public validated: boolean,
         public house_id: string, // ?
         public vehicles: Vehicles
-    ){}
+    ) { }
 }
