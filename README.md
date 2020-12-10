@@ -1,27 +1,27 @@
-# Xtreme
+# Xtreme 🚀
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.2.0.
+_Xtreme es un proyecto formado por 2 personas que ha surgido para la realizacion de la #1 hackatlon de la empresa Sogeti en colaboracion con S2V Esports_
+(https://www.sogeti.es/explora/eventos/hackathon-S2V/)
 
-## Development server
+## ¿Sobre que trata la hackalon?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+_Se pide diseñar una aplicacion para representar datos de la API de un videojuego (GTAV roleplay). El elegido será integrado en el servidor, y hay premios por participar y por ganar. Hemos tenido desde el 26 de Noviembre hasta el 10 de Diciembre para poder trabajar en el proyecto (2~ semanas)_
 
-## Code scaffolding
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
 
-## Build
+## Construido con 🛠️
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+* [Angular](https://angular.io/) - El framework de front-end muy popular a dia de hoy.
 
-## Running unit tests
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### ¿Por que Angular?
+_Angular es uno de los frameworks de front-end mas popurales, el cual usa modelo MVC y a pesar de su complejidad a la hora de familiarizarte con el framework, este es una de las mejores opciones actualmente._
 
-## Running end-to-end tests
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
 
-## Further help
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Autores ✒️
+
+* **Gerard Alexander Nina** - [GerardNP](https://github.com/GerardNP)
+* **Sergio Arribas** - [Sergio-ASdev](https://github.com/Sergio-ASdev)
